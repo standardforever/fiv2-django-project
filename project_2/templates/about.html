@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="row">
+            <div class="col-md-9 d-flex justify-content-center">
+                <div class="card p-4">
+                <h1>About Project</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget turpis ut libero placerat maximus.</p>
+                <p>Phasellus nec nunc nec elit finibus malesuada eget eu tellus.</p>
+                <!-- Add more content as needed -->
+            </div>
+        </div>
+        
+        <div class="col-md-3 d-flex justify-content-center">
+            <img src="{% static 'image/robot-2.png' %}" alt="robot" style="max-width: 400px;" class="float-right">
+        </div>
+        
+    </div>
+</div>
+
+{% endblock content %}

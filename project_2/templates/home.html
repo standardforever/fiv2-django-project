@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'navbar.html' %}
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div class="container mt-5">
+    <img src="{% static 'image/robot-1.png' %}" alt="robot" style="max-width: 200px;">
+    <img src="{% static 'image/robot-2.png' %}" alt="robot" style="max-width: 200px;" class="float-right">
+    <form action="" method="post">
+        {% csrf_token %}
+    <div class="row">
+        <div class="col-md-3 d-flex justify-content-center">
+            <div class="rounded p-4" style="width: 100%; background-color: rgba(255, 255, 255, 0.13); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 0 40px rgba(8, 7, 16, 0.6;">
+                <div class="product-option text-center">
+                    <img src="{% static 'image/red.png' %}" alt="Red Cube" style="max-width: 100px;">
+                </div>
+
+                <div class="product-option text-center" style="margin-top: 10px;">
+                    <input type="number" name="red" min="0" max="4" placeholder="Quantity" style="width: 50%;" >
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3 d-flex justify-content-center">
+            <div class="rounded p-4" style="width: 100%; background-color: rgba(255, 255, 255, 0.13); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 0 40px rgba(8, 7, 16, 0.6;">
+                <div class="product-option text-center">
+                    <img src="{% static 'image/green.png' %}" alt="Green Cube" style="max-width: 100px;">
+                </div>
+
+                <div class="product-option text-center" style="margin-top: 10px;">
+                    <input type="number" name="green" min="0" max="4" placeholder="Quantity" style="width: 50%;" >
+                </div>
+
+            </div>
+        </div>
+
+         <div class="col-md-3 d-flex justify-content-center">
+            <div class="rounded p-4" style="width: 100%; background-color: rgba(255, 255, 255, 0.13); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 0 40px rgba(8, 7, 16, 0.6;">
+                <div class="product-option text-center">
+                    <img src="{% static 'image/blue.png' %}" alt="Blue Cube" style="max-width: 100px;">
+                </div>
+
+                <div class="product-option text-center" style="margin-top: 10px;">
+                    <input type="number" name="blue" min="0" max="4" placeholder="Quantity" style="width: 50%;" >
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3 d-flex justify-content-center">
+            <div class="rounded p-4" style="width: 100%; background-color: rgba(255, 255, 255, 0.13); backdrop-filter: blur(10px); border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 0 40px rgba(8, 7, 16, 0.6;">
+                <div class="product-option text-center">
+                    <img src="{% static 'image/yellow.png' %}" alt="Yellow Cube" style="max-width: 100px;">
+                </div>
+
+                <div class="product-option text-center" style="margin-top: 10px;">
+                    <input type="number" name="yellow" min="0" max="4" placeholder="Quantity" style="width: 50%;" >
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary" style="background-color: #ffffff; color: #080710;">Place Order</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const inputFields = document.querySelectorAll("input[type='number']");
+    
+        inputFields.forEach(function(input) {
+            input.addEventListener("click", function() {
+                // Disable all input fields except the one clicked
+                inputFields.forEach(function(field) {
+                    if (field !== input) {
+                        field.disabled = true;
+                    }
+                });
+            });
+        });
+    });
+    </script>
+    
+
+{% endblock content %}
